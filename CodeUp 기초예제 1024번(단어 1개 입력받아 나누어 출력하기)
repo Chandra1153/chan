@@ -7,9 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int y, m, d;
         String str;
-
         Scanner scn = new Scanner(System.in);
 
         str = scn.next();
