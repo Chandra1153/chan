@@ -1,0 +1,25 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int y, m, d;
+        String str;
+
+        Scanner scn = new Scanner(System.in);
+
+        str = scn.next();
+
+        String [] arr = str.split("\\.");
+
+        y = Integer.parseInt(arr[0]);
+        m = Integer.parseInt(arr[1]);
+        d = Integer.parseInt(arr[2]);
+
+        System.out.printf("%d.%02d.%02d", y,m,d);
+    }
+}
