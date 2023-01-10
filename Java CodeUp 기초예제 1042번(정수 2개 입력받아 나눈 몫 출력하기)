@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        float a, b;
+        Scanner scn = new Scanner(System.in);
+        a = Float.parseFloat(scn.next());
+        b = Float.parseFloat(scn.next());
+        System.out.println((int) (a/b));
+    }
+}
