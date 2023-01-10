@@ -1,0 +1,12 @@
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+        char alp = (char) System.in.read();
+        int a = (int) alp;
+        a++;
+        alp = (char) a;
+        System.out.println(alp);
+    }
+}
