@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int h,m,t;
+        Scanner scn = new Scanner(System.in);
+        h = scn.nextInt();
+        m = scn.nextInt();
+        t = scn.nextInt();
+
+        if(h == m && m == t) {
+            System.out.println(10000 + (h * 1000));
+        }
+        else if (h == m || m == t || h == t) {
+            if(h == m)
+                System.out.println(1000 + (h*100));
+            else if(m == t)
+                System.out.println(1000 + (m*100));
+            else
+                System.out.println(1000 + (h*100));
+        }
+        else {
+            if( h > m && h > t){
+                System.out.println(h*100);
+            }else if(m > t && m > h){
+                System.out.println(m*100);
+            }else{
+                System.out.println(t*100);
+            }
+        }
+    }
+}
