@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+	int n, x, num, i, j = 0;
+	int arr1[100] = {0, };
+	int arr2[100] = {0, };
+
+	scanf("%d %d", &n, &x);
+	for (i = 0; i < n; i++) {
+		scanf("%d", &num);
+		arr1[i] = num;
+	}
+	for (i = 0; i < n; i++) {
+		if (arr1[i] <= x)
+			arr2[j++] = arr1[i];
+	}
+	for (i = 0; i < j; i++)
+		printf("%d ", arr2[i]);
+}
