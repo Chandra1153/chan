@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+void main() {
+	int n, m, pos1, pos2, num, i, j;
+	int arr[10] = {0, };
+	scanf("%d %d", &n, &m);
+	for (i = 0; i < m; i++) {
+		scanf("%d %d %d", &pos1, &pos2, &num);
+		for (j = (pos1 - 1); j < pos2; j++) {
+			arr[j] = num;
+		}
+	}
+	for (i = 0; i < n; i++) 
+		printf("%d ", arr[i]);
+}
