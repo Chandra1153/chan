@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+void main() {
+	int n, m, pos1, pos2, tmp, i, j;
+	int arr[100] = { 0, };
+	scanf("%d %d", &n, &m);
+	for (i = 0; i < n; i++) {
+		arr[i] = i + 1;
+	}
+	for (i = 0; i < m; i++) {
+		scanf("%d %d", &pos1, &pos2);
+		tmp = arr[pos1 - 1];
+		arr[pos1 - 1] = arr[pos2 - 1];
+		arr[pos2 - 1] = tmp;
+	}
+	for (i = 0; i < n; i++)
+		printf("%d ", arr[i]);
+}
