@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define STACK_SIZE 10
+
+int* stack;
+int top = -1;               // top 초기화
+int size = 1;
+
+int isEmpty() {
+	if (top == -1) return 1;
+	else return 0;
+}
+
+int isFull() {
+	if (top % STACK_SIZE == 9) return 1;
+	else return 0;
+}
+
+// 스택의 top에 원소를 삽입하는 연산
+void push(int item) {
+	int* temp;
+
+	if (isFull()) {
+		printf(" Full STACK\n");
+		temp = (int*)malloc((STACK_SIZE * size) * sizeof(int));
+
+		for (int i = 0; i < (top + 1); i++) temp[i] = stack[i];
+		stack = (int*)malloc((STACK_SIZE * (size + 1)) * sizeof(int));
+
+		for (int i = 0; i < (top + 1); i++) stack[i] = temp[i];
+		stack[++top] = item;  // top을 증가시킨 후 현재 top에 원소 삽입
+
+		size++;
+
+		free(temp);
+
+	}
+	else stack[++top] = item;  // top을 증가시킨 후 현재 top에 원소 삽입
+}
+
+void insert(int pos, int item) {
+	int* temp;
+	
+	if (isFull()) {
+		printf(" Full STACK\n");
+		temp = (int*)malloc((STACK_SIZE * size) * sizeof(int));
+		for (int i = 0; i < (top + 1); i++) temp[i] = stack[i];
+		stack = (int*)malloc((STACK_SIZE * (size + 1)) * sizeof(int));
+
+		for (int i = 0; i < pos; i++) stack[i] = temp[i];
+		stack[pos] = item;  
+		for (int i = pos; i < (top + 1); i++) stack[i + 1] = temp[i];
+		size++;
+		top++;
+
+		free(temp);
+
+	}
+	else {
+		temp = (int*)malloc((STACK_SIZE * size) * sizeof(int));
+		for (int i = 0; i < (top + 1); i++) temp[i] = stack[i];
+
+		for (int i = 0; i < pos; i++) stack[i] = temp[i];
+		stack[pos] = item;
+		for (int i = pos; i < (top + 1); i++) stack[i + 1] = temp[i];
+		top++;
+
+		free(temp);
+
+	}
+}
+void pop(int pos) {
+	int* temp;
+	
+	temp = (int*)malloc((STACK_SIZE * size) * sizeof(int));
+	printf("제거된 원소 : %d\n", stack[pos]);
+	for (int i = 0; i < pos; i++) temp[i] = stack[i];
+	for (int i = pos; i < (top + 1); i++) temp[i] = stack[i + 1];
+	
+	if (top % 10 == 0) {
+		stack = (int*)malloc((STACK_SIZE * (size - 1)) * sizeof(int));
+		for (int i = 0; i < top; i++) stack[i] = temp[i];
+		top--;
+		size--;
+	}
+	else {
+		for (int i = 0; i < (top + 1); i++) stack[i] = temp[i];
+		top--;
+	}
+
+	free(temp);
+}
+
+// 스택의 원소를 출력하는 연산
+void printStack() {
+	int i;
+	printf(" STACK SIZE [%d]\n", (STACK_SIZE * size));
+	printf("\n STACK [ ");
+	for (i = 0; i <= top; i++) printf("%d ", stack[i]);
+	printf("]\n");
+	printf("----------------------------------------------------\n");
+}
+
+int main(void) {
+	int i;
+	stack = (int*)malloc(STACK_SIZE * sizeof(int));
+	for (i = 0; i < 10; i++) push(i + 1);
+	printStack();
+
+	insert(3, 2);
+	printStack();
+
+	pop(4);
+	printStack();
+	
+	free(stack);
+	getchar();
+}
