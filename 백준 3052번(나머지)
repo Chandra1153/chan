@@ -1,0 +1,18 @@
+#include <stdio.h>
+#define _CRT_NO_SECURE_WARNINGS
+
+int main() {
+	int n, i, j, count = 0, sum;
+	int arr[42];
+	for (i = 0; i < 42; i++)
+		arr[i] = -1;
+	for (i = 0; i < 10; i++) {
+		scanf_s(" %d", &n);
+		arr[n % 42] = n % 42;
+	}
+	for (i = 0; i < 42; i++) {
+		if (arr[i] != -1)
+			count++;
+	}
+	printf("%d\n", count);
+}
