@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define _CRT_NO_SECURE_WARNINGS
+
+int main() {
+	int n, m, i, j, k, pos1, pos2, tmp;
+	int arr[100];
+	scanf_s(" %d %d", &n, &m);
+	for (i = 0; i < n; i++)
+		arr[i] = i + 1;
+	for (i = 0; i < m; i++) {
+		scanf_s(" %d %d", &pos1, &pos2);
+		k = pos2 - pos1;
+		for (j = 0; j < k/2; j++) {
+			tmp = arr[pos1 - 1];
+			arr[pos1 - 1] = arr[pos2 - 1];
+			pos1++;
+			pos2--;
+		}
+	}
+	for (i = 0; i < n; i++)
+		printf("%d ", arr[i]);
+}
