@@ -3,16 +3,21 @@
 
 int main() {
 	int n, m, i, j, k, pos1, pos2, tmp;
-	int arr[100];
+	int arr[100] = { 0, };
 	scanf_s(" %d %d", &n, &m);
 	for (i = 0; i < n; i++)
 		arr[i] = i + 1;
 	for (i = 0; i < m; i++) {
 		scanf_s(" %d %d", &pos1, &pos2);
+		if (pos1 == pos2)
+			continue;
 		k = pos2 - pos1;
-		for (j = 0; j < k/2; j++) {
+		if (k % 2== 1)
+			k++;
+		for (j = 0; j < k / 2; j++) {
 			tmp = arr[pos1 - 1];
 			arr[pos1 - 1] = arr[pos2 - 1];
+			arr[pos2 - 1] = tmp;
 			pos1++;
 			pos2--;
 		}
