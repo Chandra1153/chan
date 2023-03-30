@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+	int i, n;
+	char c;
+	char arr[1000] = { 0, };
+	gets(arr);
+	scanf(" %d", &n);
+	if (n >= sizeof(arr))
+		printf("n이 너무 큽니다.");
+	else
+		printf("%c", arr[n]);
+}
