@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+	int i = 0, count = 0;
+	char c;
+	char arr[100] = { 0, };
+	gets(arr);
+	while (arr[i] != 0) {
+		i++;
+		count++;
+	}
+	printf("%d\n", count);
+}
