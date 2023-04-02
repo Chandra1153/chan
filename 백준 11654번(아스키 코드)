@@ -6,4 +6,4 @@ int main() {
 	scanf_s("%c", &c);
 	printf("%d\n", (int)c);
 	return 0;
-}
+} 
