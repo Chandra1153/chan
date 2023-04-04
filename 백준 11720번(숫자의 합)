@@ -3,15 +3,16 @@
 
 
 int main() {
-	int i = 0, sum = 0, t;
+	int i = 0, t, sum = 0;
 	char c[10] = { 0, };
 	char arr[100] = { 0, };
 	scanf_s("%d", &t);
-	gets(c);
+	gets(c); //enter 값 상쇄
 	gets(arr);
 	for (i = 0; i < t; i++) {
-		sum = sum + arr[i];
+		sum = sum + atoi(arr[i]);
+		printf("%d ", atoi(arr[i]));
 	}
-	printf("%d\n", sum);
+	printf("\n%d\n", sum);
 	return 0;
 }
