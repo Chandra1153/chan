@@ -10,8 +10,7 @@ int main() {
 	gets(c); //enter 값 상쇄
 	gets(arr);
 	for (i = 0; i < t; i++) {
-		sum = sum + atoi(arr[i]);
-		printf("%d ", atoi(arr[i]));
+		sum += arr[i] - '0';
 	}
 	printf("\n%d\n", sum);
 	return 0;
