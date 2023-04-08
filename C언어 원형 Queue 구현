@@ -28,33 +28,29 @@ void enqueue(int item) {
 	int j = 0;
 
 	if (isFull()) {
-		temp = (int*)malloc((QUEUE_SIZE * size) * sizeof(int));
+		temp = (int*)malloc((QUEUE_SIZE * ++size) * sizeof(int));
 		printf(" Full QUEUE\n");
-		printf("[QUEUE SIZE] : %d\n", QUEUE_SIZE * (size + 1));
+		printf("[QUEUE SIZE] : %d\n", QUEUE_SIZE * size);
 
 		if (front == 0) {
-			for (int i = 0; i < QUEUE_SIZE * size; i++) temp[i] = queue[i];
+			for (int i = 0; i < QUEUE_SIZE * (size - 1); i++) temp[i] = queue[i];
 			free(queue);
 
-			queue = (int*)malloc((QUEUE_SIZE * (size + 1)) * sizeof(int));
-			for (int i = 0; i < QUEUE_SIZE * size; i++) queue[i] = temp[i];
-			size++;
+			queue = (int*)malloc((QUEUE_SIZE * size) * sizeof(int));
+			for (int i = 0; i < QUEUE_SIZE * (size - 1); i++) queue[i] = temp[i];
 			queue[++rear] = item;
 		}
-		else {// (front > rear && front > 0)
-			for (int i = front + 1; i < QUEUE_SIZE * size; i++) temp[j++] = queue[i];
+		else {
+			temp[j++] = queue[front + 1];
 			for (int i = 0; i <= rear; i++) temp[j++] = queue[i];
 			j = 0;
 			free(queue);
 
-			queue = (int*)malloc((QUEUE_SIZE * (size + 1)) * sizeof(int));
-			if(queue != NULL) queue = (int*)malloc((QUEUE_SIZE * (size + 1)) * sizeof(int));
-//			for (int i = 0; i < QUEUE_SIZE * size; i++) printf("%d   ", temp[i]);
-//			for (int i = 0; i < QUEUE_SIZE * size; i++) queue[i] = temp[i];
+			queue = (int*)malloc((QUEUE_SIZE * size) * sizeof(int));
+			for (int i = 0; i < QUEUE_SIZE * (size - 1); i++) queue[i + 1] = temp[i];
 			front = 0;
-			rear = QUEUE_SIZE * size;
+			rear = QUEUE_SIZE * (size - 1) - 1;
 			queue[++rear] = item;
-			size++;
 		}
 	}
 	else {
@@ -65,23 +61,24 @@ void enqueue(int item) {
 
 int dequeue() {
 	int* temp;
+	int j = 0;
 	if (isEmpty()) {	// 큐가 공백 상태인 경우
 		printf("\n\n Queue is Empty!!\n");
 		return 0;
 	}
 	else {
 		if ((queueSize() - 1) % 10 == 9) {
-			if (front < rear) {
-				temp = (int*)malloc((QUEUE_SIZE * --size) * sizeof(int));
-				printf("[QUEUE SIZE] : %d\n", QUEUE_SIZE * size);
-				for (int i = ++front; i <= rear; i++) temp[i] = queue[i];
-				free(queue);
+			temp = (int*)malloc((QUEUE_SIZE * --size) * sizeof(int));
+			printf("[QUEUE SIZE] : %d\n", QUEUE_SIZE * size);
+			for (int i = front + 2; i <= rear; i++) temp[j++] = queue[i];
+			j = 0;
+			free(queue);
 
-				queue = (int*)malloc((QUEUE_SIZE * size) * sizeof(int));
-				if (queue != NULL) queue = (int*)malloc((QUEUE_SIZE * (size + 1)) * sizeof(int));
-				for (int i = 0; i < QUEUE_SIZE * size; i++) queue[i] = temp[i];
-				return queue[front];
-			}
+			queue = (int*)malloc((QUEUE_SIZE * size) * sizeof(int));
+			for (int i = 0; i < QUEUE_SIZE * size - 1; i++) queue[i + 1] = temp[i];
+			front = 0;
+			rear = QUEUE_SIZE * size - 1;
+			return queue[front];
 		}
 		else {
 			front = (front + 1) % (QUEUE_SIZE * size);
@@ -95,7 +92,7 @@ int dequeue() {
 void printQueue() {
 	int i, maxi = rear;
 	if (front >= rear) maxi += QUEUE_SIZE * size;
-	printf("\n\n");
+	printf("\n");
 	printf("front : %d  rear : %d  size : %d\n", front, rear, size);
 	printf("Queue size is [%2d]= ", queueSize());
 	for (i = front + 1; i <= maxi; i++)
@@ -113,15 +110,9 @@ int main(void) {
 	printQueue();
 	for (i = 0; i < 9; i++) dequeue();
 	printQueue();
-	for (i = 0; i < 18; i++) enqueue(i + 11);
+	for (i = 0; i < 8; i++) enqueue(i + 11);
 	printQueue();
-	enqueue(30);
+	enqueue(19);
 	printQueue();
-	/*
-	for (i = 0; i < 7; i++) dequeue();
-	printQueue();
-	for (i = 10; i < 19; i++) enqueue(i + 1);
-	printQueue();
-*/
 	free(queue);
 }
