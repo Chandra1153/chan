@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+	int i = 0, count = 1;
+	char c[1000];
+	gets(c);
+	while (c[i] != NULL) {
+		if (c[i] == 32)
+			count++;
+		i++;
+	}
+	printf("%d\n", count);
+	return 0;
+}
