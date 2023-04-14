@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+
+void main() {
+	int i, j = 0;
+	int chess[6] = { 1, 1, 2, 2, 2, 8 };
+	int old_chess[6] = { 0, };
+	for(i = 0; i < 6; i++)
+		scanf_s("%d", &old_chess[i]);
+	for (i = 0; i < 6; i++) {
+		old_chess[i] = chess[j++] - old_chess[i];
+	}
+	for (i = 0; i < 6; i++)
+		printf("%d ", old_chess[i]);
+}
