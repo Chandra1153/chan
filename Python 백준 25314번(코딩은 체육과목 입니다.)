@@ -1,0 +1,7 @@
+n = int(input())
+count = n // 4
+if n % 4 > 0 and n % 4 < 4:
+    count += 1
+for i in range(count):
+    print("long", end=" ")
+print("int")
