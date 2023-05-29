@@ -1,0 +1,11 @@
+n = int(input())
+alist = []
+blist = []
+sum = []
+for i in range(n):
+    a, b = map(int, input().split())
+    alist.append(a)
+    blist.append(b)
+    sum.append(a + b)
+for i in range(n):
+    print("Case #",i+1, ": ", alist[i], " + ", blist[i], " = ", sum[i], sep="")
