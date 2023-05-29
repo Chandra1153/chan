@@ -1,0 +1,8 @@
+sum = []
+while 1:
+    a, b = map(int, input().split())
+    if a == 0 and b == 0:
+        break
+    sum.append(a+b)
+for i in sum:
+    print(i)
