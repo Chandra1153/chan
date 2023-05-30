@@ -1,0 +1,9 @@
+sum = []
+while True:
+    try:
+        a, b = map(int, input().split())
+        sum.append(a+b)
+    except:
+        break
+for i in sum:
+    print(i)
