@@ -1,0 +1,9 @@
+import sys
+n, x = map(int, input().split())
+arr = []
+lst = list(map(int, sys.stdin.readline().rstrip().split()))
+for i in lst:
+    if i < x:
+        arr.append(i)
+for i in arr:
+    print(i, end=" ")
