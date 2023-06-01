@@ -1,0 +1,13 @@
+import sys
+txt = list(sys.stdin.readline())
+txt.pop()
+if txt[-1] == " ":
+    if txt[0] == " ":
+        print(txt.count(" ")-1)
+    else:
+        print(txt.count(" "))
+else:
+    if txt[0] == " ":
+        print(txt.count(" "))
+    else:
+        print(txt.count(" ")+1)
