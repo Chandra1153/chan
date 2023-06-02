@@ -1,0 +1,6 @@
+mod = []
+for i in range(10):
+    n = int(input())
+    mod.append(n%42)
+result = list(set(mod))
+print(len(result))
