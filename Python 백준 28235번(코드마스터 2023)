@@ -1,0 +1,9 @@
+input = input()
+if input == "SONGDO":
+    print("HIGHSCHOOL")
+if input == "CODE":
+    print("MASTER")
+if input == "2023":
+    print("0611")
+if input == ("ALGORITHM"):
+    print("CONTEST")
