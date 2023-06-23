@@ -1,5 +1,4 @@
 c = int(input())
-
 def roundTraditional(val, digits):
     return round(val+10**(-len(str(val))-1), digits)
 
