@@ -1,0 +1,10 @@
+dial = ["ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"]
+word = input()
+sum = 0
+
+for i in dial:
+    for j in i:
+        for k in word:
+            if j == k:
+                sum += dial.index(i) + 3
+print(sum)
