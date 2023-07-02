@@ -1,0 +1,12 @@
+chess = [1, 1, 2, 2, 2, 8]
+input_chess = list(map(int, input().split()))
+result = []
+for i in range(6):
+    if chess[i] > input_chess[i]:
+        result.append(chess[i] - input_chess[i])
+    elif chess[i] < input_chess[i]:
+        result.append(chess[i] - input_chess[i])
+    else:
+        result.append(0)
+for i in result:
+    print(i, end=" ")
