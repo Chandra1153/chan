@@ -1,0 +1,15 @@
+n = int(input())
+cnt1 = n - 1
+cnt2 = 1
+for i in range(2*n - 1):
+    for j in range(cnt1):
+        print(" ", end="")
+    for j in range(cnt2):
+        print("*", end="")
+    print(" ")
+    if i < n-1:
+        cnt1 -= 1
+        cnt2 += 2
+    else:
+        cnt1 += 1
+        cnt2 -= 2
