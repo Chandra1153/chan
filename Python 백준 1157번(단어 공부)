@@ -1,0 +1,21 @@
+s = input()
+count = []
+max = tmp = 0
+dupl = False
+for i in range(26):
+    count.append(0)
+for i in s:
+    for j in range(65, 91):
+        if ord(i) == j or ord(i) == j + 32:
+            count[j - 65] += 1
+for i in range(26):
+    if max < count[i]:
+        max = count[i]
+        tmp = i
+        dupl = False
+    elif max == count[i]:
+        dupl = True
+if dupl == False:
+    print(chr(tmp + 65))
+else:
+    print("?")
