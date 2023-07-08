@@ -1,0 +1,14 @@
+import sys
+graph = []
+max = row = col = -1
+for i in range(9):
+    data = list(map(int, sys.stdin.readline().split()))
+    graph.append(data)
+for i in range(9):
+    for j in range(9):
+        if max < graph[i][j]:
+            max = graph[i][j]
+            row = j + 1
+            col = i + 1
+print(max)
+print(col, row)
