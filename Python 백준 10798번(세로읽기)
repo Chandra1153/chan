@@ -1,0 +1,10 @@
+graph, line = [], []
+for i in range(5):
+    data = list(input())
+    graph.append(data)
+for j in range(15):
+    for i in range(5):
+        if j < len(graph[i]):
+            line.append(graph[i][j])
+for i in line:
+    print(i, end="")
