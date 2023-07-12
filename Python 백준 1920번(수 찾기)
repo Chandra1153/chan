@@ -1,0 +1,10 @@
+import sys
+n = sys.stdin.readline()
+a = set(sys.stdin.readline().split())
+m = sys.stdin.readline()
+num = sys.stdin.readline().split()
+for i in num:
+    if i in a:
+        print(1)
+    else:
+        print(0)
