@@ -1,0 +1,12 @@
+import sys
+n = int(sys.stdin.readline())
+pattern = 1
+if n > 1 and n < 8:
+    pattern += 1
+if n > 7:
+    while True:
+        n -= 6 * pattern
+        pattern += 1
+        if n <= 1:
+            break
+print(pattern)
