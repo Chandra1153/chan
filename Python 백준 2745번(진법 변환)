@@ -1,0 +1,10 @@
+N, B = input().split()
+decimal = 0
+exp = len(N) - 1
+for i in N:
+    if ord(i) - 55 > 3:
+        decimal += (ord(i) - 55) * (int(B) ** exp)
+    else:
+        decimal += (int(i) * (int(B) ** exp))
+    exp -= 1
+print(decimal)
