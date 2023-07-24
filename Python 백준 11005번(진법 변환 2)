@@ -1,0 +1,17 @@
+N, B = map(int, input().split())
+B_arith = []
+while True:
+    if N < B:
+        if N < 10:
+            B_arith.append(N)
+        else:
+            B_arith.append(chr(N + 55))
+        break
+    R = N % B
+    N = N // B
+    if R < 10:
+        B_arith.append(R)
+    else:
+        B_arith.append(chr(R + 55))
+for i in range(len(B_arith)-1, -1, -1):
+    print(B_arith[i], end="")
