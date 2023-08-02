@@ -1,0 +1,11 @@
+x, y, w, h = map(int, input().split())
+len = []
+if x <= (w - x):
+    len.append(x)
+else:
+    len.append(w - x)
+if y <= (h - y):
+    len.append(y)
+else:
+    len.append(h - y)
+print(min(len))
