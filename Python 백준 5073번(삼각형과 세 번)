@@ -1,0 +1,14 @@
+import sys
+while True:
+    line = list(map(int, sys.stdin.readline().split()))
+    if max(set(line)) == 0:
+        break
+    if len(set(line)) == 1:
+        print('Equilateral')
+        continue
+    if (sum(line) - max(line)) <= max(line):
+        print('Invalid')
+    elif len(set(line)) == 2:
+        print('Isosceles')
+    else:
+        print('Scalene')
