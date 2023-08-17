@@ -1,0 +1,9 @@
+arr = []
+for i in range(int(input())):
+    arr.append(input())
+set = set(arr)
+arr = list(set)
+arr.sort()
+arr.sort(key = len)
+for i in arr:
+    print(i)
