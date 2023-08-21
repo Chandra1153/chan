@@ -1,0 +1,10 @@
+import sys
+list = {}
+for _ in range(int(input())):
+    name, status = sys.stdin.readline().split()
+    if status == 'enter':
+        list[name] = status
+    if status == 'leave':
+        del list[name]
+for i in sorted(list, reverse=True):
+    print(i)
