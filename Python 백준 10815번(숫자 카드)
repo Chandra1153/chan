@@ -1,0 +1,14 @@
+card_N, card_M = {}, {}
+N = int(input())
+num_card_N = list(map(int, input().split()))
+for i in num_card_N:
+    card_N[i] = 0
+M = int(input())
+num_card_M = list(map(int, input().split()))
+for i in num_card_M:
+    card_M[i] = 0
+for i in num_card_M:
+    if i in card_N:
+        card_M[i] = 1
+for i in card_M.values():
+    print(i, end=' ')
