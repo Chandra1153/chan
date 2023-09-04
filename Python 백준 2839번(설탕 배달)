@@ -1,0 +1,11 @@
+N = int(input())
+arr = []
+rest_5 = N % 5
+rest_3 = N % 3
+if N % 5 == 0 or rest_5 % 3 == 0:
+    arr.append(N//5 + rest_5//3)
+elif N % 3 == 0:
+    arr.append(N//3)
+else:
+    arr.append(-1)
+print(min(arr))
