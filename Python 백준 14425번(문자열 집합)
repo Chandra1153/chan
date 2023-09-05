@@ -1,0 +1,9 @@
+N, M = map(int, input().split())
+n, m, cnt = {}, [], 0
+for _ in range(N):
+    n[input()] = 0
+for _ in range(M):
+    s = input()
+    if s in n:
+        cnt += 1
+print(cnt)
