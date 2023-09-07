@@ -1,0 +1,15 @@
+import sys
+input = sys.stdin.readline
+
+N, M = map(int, input().split())
+poketmon = {}
+for i in range(1, N+1):
+    name = input().rstrip()
+    poketmon[i] = name
+    poketmon[name] = i
+for _ in range(M):
+    quiz = input().rstrip()
+    if quiz.isdigit():
+        print(poketmon.get(int(quiz)))
+    else:
+        print(poketmon.get(quiz))
