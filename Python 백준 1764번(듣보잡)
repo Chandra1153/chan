@@ -1,0 +1,15 @@
+import sys
+input = sys.stdin.readline
+
+hear, see, hear_see = {}, {}, {}
+N, M = map(int, input().split())
+for _ in range(N):
+    hear[input().rstrip()] = 0
+for _ in range(M):
+    see[input().rstrip()] = 0
+for n in see.keys():
+    if n in hear:
+        hear_see[n] = 0
+print(len(hear_see.keys()))
+for n in sorted(hear_see.keys()):
+    print(n)
