@@ -1,0 +1,10 @@
+n, m = map(int, input().split())
+A, B = {}, {}
+for i in list(map(int, input().split())):
+    A[i] = 0
+for i in list(map(int, input().split())):
+    if i in A:
+        del A[i]
+    else:
+        B[i] = 0
+print(len(A.keys()) + len(B.keys()))
