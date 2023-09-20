@@ -1,11 +1,7 @@
+import fractions
 a, b = map(int, input().split())
 c, d = map(int, input().split())
-for i in range(min(b, d), 0, -1):
-    if b % i == 0 and d % i == 0:
-        numerator = (a * (d//i)) + (c * (b//i))
-        denominator = i * (b//i) * (d//i)
-        break
-for i in range(min(numerator, denominator), 0, -1):
-        if numerator % i == 0 and denominator % i == 0:
-             print(numerator//i, denominator//i)
-             break
+A = fractions.Fraction(a, b)
+B = fractions.Fraction(c, d)
+C = A + B
+print(C.numerator, C.denominator)
