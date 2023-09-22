@@ -1,0 +1,22 @@
+import sys
+input = sys.stdin.readline 
+n = int(input())
+tree, tree_len = [], []
+for _ in range(n):
+    tree.append(int(input()))
+for i in range(n-1):
+    tree_len.append(tree[i+1] - tree[i])
+for i in range(max(tree_len), 0, -1):
+    check = True
+    for j in tree_len:
+        if check == False:
+            break
+        if j % i != 0:
+            check = False
+    if check == True:
+        numerator = i
+        break
+sum = 0
+for i in tree_len:
+    sum += i // numerator
+print(sum - len(tree_len))
