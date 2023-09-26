@@ -1,0 +1,60 @@
+import java.util.Scanner;
+public class RockPaperScissors {
+	public static void main(String[] args) {
+		String player, computer;
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("컴퓨터와 가위 바위 보 게임을 합니다");
+		
+		while(true) {
+			System.out.print("가위 바위 보!>>");
+			
+			player = sc.next();
+			int n = (int)(Math.random()*3);
+			
+			if(n == 0) computer = "가위";
+			else if(n == 1) computer = "바위";
+			else computer = "보";
+			
+			if(player.equals("그만")) {
+				System.out.println("게임을 종료합니다...");
+				break;
+			}
+			
+			if(computer.equals("가위")) {
+				if(player.equals("가위")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 비겼습니다.");
+				}
+				else if(player.equals("바위")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 사용자가 이겼습니다.");
+				}
+				else if(player.equals("보")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 컴퓨터가 이겼습니다.");
+				}
+			}
+			if(computer.equals("바위")) {
+				if(player.equals("바위")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 비겼습니다.");
+				}
+				else if(player.equals("보")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 사용자가 이겼습니다.");
+				}
+				else if(player.equals("가위")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 컴퓨터가 이겼습니다.");
+				}
+			}
+			if(computer.equals("보")) {
+				if(player.equals("보")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 비겼습니다.");
+				}
+				else if(player.equals("가위")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 사용자가 이겼습니다.");
+				}
+				else if(player.equals("바위")) {
+					System.out.println("사용자 = " + player + ", 컴퓨터 = " + computer + ", 컴퓨터가 이겼습니다.");
+				}
+			}
+		}
+		sc.close();
+	}
+}
