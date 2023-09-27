@@ -1,11 +1,11 @@
 import sys
 input = sys.stdin.readline 
 n = int(input())
-tree, tree_len = [], {}
-for _ in range(n):
-    tree.append(int(input()))
-for i in range(n-1):
-    tree_len[i] = tree[i+1] - tree[i]
+tree, tree_len = {}, {}
+for i in range(n):
+    tree[i] = int(input())
+    if i > 0 and i < n:
+        tree_len[i-1] = tree[i] - tree[i-1]
 for i in range(max(tree_len.values()), 0, -1):
     check = True
     for j in tree_len.values():
