@@ -1,0 +1,10 @@
+m, n = map(int, input().split())
+prime = {}
+for i in range(m, n+1):
+    prime[i] = 0
+for i in range(2, n+1):
+    for j in range(i+i, n+1, i):
+        if j in prime:
+            del prime[j]
+for i in prime.keys():
+    print(i)
