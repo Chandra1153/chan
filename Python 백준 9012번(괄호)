@@ -9,7 +9,7 @@ for _ in range(t):
         if len(stack) == 0:
             stack.append(i)
         else:
-            if stack[-1] != i:
+            if stack[-1] != i and i != '(':
                 stack.pop()
             else:
                 stack.append(i)
