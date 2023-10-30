@@ -1,0 +1,12 @@
+import sys
+input = sys.stdin.readline
+
+while True:
+    balance = True
+    stack = []
+    str = input().strip()
+    if str[0] == '.':
+        break
+    for i in str:
+        if i == '(' or i == ')' or i == '[' or i == ']' or i == '.':
+            stack.append(i)       
