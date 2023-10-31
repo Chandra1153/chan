@@ -1,12 +1,33 @@
 import sys
 input = sys.stdin.readline
 
+stack = []
 while True:
-    balance = True
-    stack = []
+    balance = False
     str = input().strip()
     if str[0] == '.':
         break
     for i in str:
         if i == '(' or i == ')' or i == '[' or i == ']' or i == '.':
-            stack.append(i)       
+            if len(stack) == 0:
+                stack.append(i)
+            
+    for i in range(len(stack)):
+        if len(stack) == 1:
+            break
+        for j in range(len(stack)-1, -1, -1):
+            if stack[i] == '(' and stack[j] == ')':
+                del stack[i]
+                del stack[j]
+                print(stack)
+            elif stack[i] == '[' and stack[j] == ']':
+                del stack[i]
+                del stack[j]
+                print(stack)
+    if stack[0] == '.':
+        balance = True
+    stack.clear()
+    if balance == True:
+        print("yes")
+    else:
+        print("no")
