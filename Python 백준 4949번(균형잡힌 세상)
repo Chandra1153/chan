@@ -13,8 +13,6 @@ while True:
                 stack.append(i)
             
     for i in range(len(stack)):
-        if len(stack) == 1:
-            break
         for j in range(len(stack)-1, -1, -1):
             if stack[i] == '(' and stack[j] == ')':
                 del stack[i]
