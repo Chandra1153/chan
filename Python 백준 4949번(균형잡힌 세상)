@@ -9,19 +9,19 @@ while True:
         break
     for i in str:
         if i == '(' or i == ')' or i == '[' or i == ']' or i == '.':
-            if len(stack) == 0:
-                stack.append(i)
+            stack.append(i)
+    print(stack)
             
-    for i in range(len(stack)):
-        for j in range(len(stack)-1, -1, -1):
-            if stack[i] == '(' and stack[j] == ')':
-                del stack[i]
-                del stack[j]
-                print(stack)
-            elif stack[i] == '[' and stack[j] == ']':
-                del stack[i]
-                del stack[j]
-                print(stack)
+    for j in range(len(stack)-1, -1, -1):
+        if stack[0] == '(' and stack[j] == ')':
+            del stack[0]
+            del stack[j-1]
+            print(stack)
+        elif stack[0] == '[' and stack[j] == ']':
+            del stack[0]
+            del stack[j-1]
+            print(stack)
+        
     if stack[0] == '.':
         balance = True
     stack.clear()
