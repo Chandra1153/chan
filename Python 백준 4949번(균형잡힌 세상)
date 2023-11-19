@@ -4,7 +4,7 @@ input = sys.stdin.readline
 stack = []
 while True:
     balance = False
-    str = input().strip()
+    str = input().rstrip()
     if str[0] == '.':
         break
     for i in str:
@@ -12,15 +12,14 @@ while True:
             stack.append(i)
     print(stack)
             
-    for j in range(len(stack)-1, -1, -1):
-        if stack[0] == '(' and stack[j] == ')':
-            del stack[0]
-            del stack[j-1]
-            print(stack)
-        elif stack[0] == '[' and stack[j] == ']':
-            del stack[0]
-            del stack[j-1]
-            print(stack)
+    while stack[0] != '.':
+        for j in range(len(stack) - 1, -1, -1):
+            if stack[0] == '(' and stack[j] == ')':
+                del stack[0]
+                del stack[j-1]
+            elif stack[0] == '[' and stack[j] == ']':
+                del stack[0]
+                del stack[j-1]
         
     if stack[0] == '.':
         balance = True
